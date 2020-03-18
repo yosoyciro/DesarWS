@@ -13,19 +13,19 @@ AS
 BEGIN
 	DECLARE @ListasPrecioId AS INT	
 	DECLARE @PrecioVenta AS DECIMAL(7,2)
-	DECLARE @PorcCajaAutomatica DECIMAL(5,2)
+	DECLARE @PorcCajaAutomatica DECIMAL(7,2)
 
     -- Insert statements for procedure here
 	SELECT TOP 1 @ListasPrecioId = LISTASPRECIOID, @PorcCajaAutomatica = PORCCAJAAUTOMATICA FROM ListasPrecio 
 	WHERE VIGENTEDESDE <= dbo.ConvFechaClarion(GETDATE()) AND CATEGORIASID = @pCategoriasId
-	ORDER BY VIGENTEDESDE
+	ORDER BY VIGENTEDESDE DESC
 	IF @@ROWCOUNT > 0
 	BEGIN
 		SELECT @PrecioVenta = IMPORTE FROM ListasPrecioDetalle WHERE LISTASPRECIOID = @ListasPrecioId AND ARTICULOSID = @pArticulosId
 	END
 
 	IF @TipoCaja = 'A' AND @pArticulosId = 10
-		SET @PrecioVenta = @PrecioVenta * (@PorcCajaAutomatica/100)
+		SET @PrecioVenta = @PrecioVenta + (@PrecioVenta * (@PorcCajaAutomatica/100))
 
 	RETURN @PrecioVenta
 END
