@@ -24,5 +24,6 @@ namespace BE.Stock
         public virtual string TipoCaja { get; set; }
         public virtual string Categoria { get; set; }
         public virtual decimal PrecioVenta { get; set; }
+        public virtual string Patente { get; set; }
     }
 }

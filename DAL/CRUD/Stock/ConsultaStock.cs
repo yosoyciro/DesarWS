@@ -35,6 +35,7 @@ namespace DAL.CRUD.Stock
                     .AddScalar("TipoCaja", NHibernateUtil.String)
                     .AddScalar("Categoria", NHibernateUtil.String)
                     .AddScalar("PrecioVenta", NHibernateUtil.Decimal)
+                    .AddScalar("Patente", NHibernateUtil.String)
                     .SetResultTransformer(NHibernate.Transform.Transformers.AliasToBean(typeof(BE.Stock.ConsultaStock)))
                     .List<BE.Stock.ConsultaStock>()
                     .ToList();
