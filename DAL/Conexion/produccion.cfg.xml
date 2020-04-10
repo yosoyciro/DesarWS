@@ -5,7 +5,7 @@
 
     <!-- properties -->
     <property name="connection.connection_string">
-      Server=DESKTOP-MTRTGGE;initial catalog=DesarmReplica;User Id=sa;Password=locohiro
+      Server=WIN-2GN92A5BKQ8;initial catalog=DesarmReplica;User Id=sa;Password=Alvarez@server
     </property>
     <property name="show_sql">false</property>
     <property name="dialect">NHibernate.Dialect.MsSql2008Dialect</property>

@@ -59,15 +59,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CRUD\PedidosWeb\CRUDPedidosWeb.cs" />
+    <Compile Include="CRUD\PedidosWeb\CRUDPersonas.cs" />
+    <Compile Include="CRUD\PedidosWeb\CRUDPersonasWeb.cs" />
     <Compile Include="CRUD\Stock\ConsultaStock.cs" />
     <Compile Include="CRUD\Tablas\CRUDArticulos.cs" />
+    <Compile Include="CRUD\Tablas\CRUDLocalidades.cs" />
     <Compile Include="CRUD\Tablas\CRUDMarcas.cs" />
     <Compile Include="CRUD\Tablas\CRUDModelos.cs" />
+    <Compile Include="CRUD\Tablas\CRUDProvincias.cs" />
     <Compile Include="CRUD\Tablas\CRUDTiposCombustible.cs" />
     <Compile Include="CRUD\Tablas\CRUDVehiculosTipo.cs" />
     <Compile Include="Mapeos\MapArticulos.cs" />
+    <Compile Include="Mapeos\MapLocalidades.cs" />
     <Compile Include="Mapeos\MapMarcas.cs" />
     <Compile Include="Mapeos\MapModelos.cs" />
+    <Compile Include="Mapeos\MapPedidosWeb.cs" />
+    <Compile Include="Mapeos\MapPedidosWeDetalle.cs" />
+    <Compile Include="Mapeos\MapPersonas.cs" />
+    <Compile Include="Mapeos\MapPersonasWeb.cs" />
+    <Compile Include="Mapeos\MapProvincias.cs" />
     <Compile Include="Mapeos\MapTiposCombustible.cs" />
     <Compile Include="Mapeos\MapVehiculosTipo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,8 +88,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="hibernate.cfg.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Conexion\produccion.cfg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Conexion\test.cfg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup />

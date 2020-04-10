@@ -6,6 +6,7 @@ using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System;
 using DAL.Mapeos;
+using System.Configuration;
 
 namespace DAL.Sesion
 {
@@ -99,7 +100,17 @@ namespace DAL.Sesion
                 if (_sessionFactory == null)
                 {
                     var cfg = new NHibernate.Cfg.Configuration();
-                    cfg.Configure();
+                    var appconfig = ConfigurationManager.AppSettings;
+                    switch (appconfig["Ambiente"])
+                    {
+                        case "Test":
+                            cfg.Configure("D:/Desarrollo/C#/Desarm/WebApi/bin/Conexion/test.cfg.xml");
+                            break;
+
+                        case "Produccion":
+                            cfg.Configure("/inetpub/wwwroot/Desarm/bin/Conexion/produccion.cfg.xml");
+                            break;
+                    }
 
                     var mapper = new ModelMapper();
 
@@ -109,6 +120,12 @@ namespace DAL.Sesion
                     mapper.AddMapping<MapVehiculosTipo>();
                     mapper.AddMapping<MapArticulos>();
                     mapper.AddMapping<MapTiposCombustible>();
+                    mapper.AddMapping<MapLocalidades>();
+                    mapper.AddMapping<MapProvincias>();
+                    mapper.AddMapping<MapPedidosWeb>();
+                    mapper.AddMapping<MapPedidosWeDetalle>();
+                    mapper.AddMapping<MapPersonasWeb>();
+                    mapper.AddMapping<MapPersonas>();
 
                     var mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
 

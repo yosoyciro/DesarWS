@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE.Tablas
+namespace BE.Pedidos
 {
     public class Personas
     {
         public Personas()
         { }
-        public virtual int PERSONASID { get; set; }
+        public virtual int PERSONASID { get; set; }        
+        public virtual int DNI { get; set; }
         public virtual string NOMBRE { get; set; }
         public virtual string DIRECCION1 { get; set; }
         public virtual string DIRECCION2 { get; set; }
@@ -28,9 +29,12 @@ namespace BE.Tablas
         public virtual int TIPOSPERSONAID { get; set; }
         public virtual byte TIENECTACTE { get; set; }
         public virtual string ESTADOCTACTE { get; set; }
-        public virtual int DIASVENCIMIENTOFACTURA { get; set; }
+        public virtual byte DIASVENCIMIENTOFACTURA { get; set; }
         public virtual Decimal DESCUENTO { get; set; }
         public virtual int BLOQUEOSID { get; set; }
         public virtual string SEXO { get; set; }
+        //public virtual System.Guid ROWGUID { get; set; }
+        public virtual DateTime? FechaNacimientoS { get; set; }
+        public virtual Tablas.Localidades Localidad { get; set; }
     }
 }

@@ -169,13 +169,17 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PedidosWeb\PedidosWebController.cs" />
+    <Compile Include="Controllers\PedidosWeb\PersonasController.cs" />
+    <Compile Include="Controllers\PedidosWeb\PersonasWebController.cs" />
     <Compile Include="Controllers\Stock\ConsultaStockController.cs" />
     <Compile Include="Controllers\Tablas\ArticulosController.cs" />
+    <Compile Include="Controllers\Tablas\LocalidadesController.cs" />
     <Compile Include="Controllers\Tablas\MarcasController.cs" />
     <Compile Include="Controllers\Tablas\ModelosController.cs" />
+    <Compile Include="Controllers\Tablas\ProvinciasController.cs" />
     <Compile Include="Controllers\Tablas\TiposCombustibleController.cs" />
     <Compile Include="Controllers\Tablas\VehiculosTipoController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
