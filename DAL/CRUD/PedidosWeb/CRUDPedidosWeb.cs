@@ -26,21 +26,34 @@ namespace DAL.CRUD.PedidosWeb
             try
             {
                 //Persona
-                var persona = session.Get<BE.Pedidos.Personas>(pPedidosWeb.PERSONASID);
+                var persona = session.Get<BE.Pedidos.Personas>(pPedidosWeb.Persona.PERSONASID);
                 if (persona == null)
-                    session.Save(pPedidosWeb.Persona);
+                {
+                    persona = pPedidosWeb.Persona;
+                    session.Save(persona);
+                    pPedidosWeb.PERSONASID = persona.PERSONASID;
+                    pPedidosWeb.Persona.PERSONASID = persona.PERSONASID;
+                }                   
                 else
-                    session.Merge(pPedidosWeb.Persona);
-
+                {
+                    persona = pPedidosWeb.Persona;
+                    session.Merge(persona);
+                }
+                    
                 //Guardo el pedido
                 session.Save(pPedidosWeb);
 
                 //Detalle
-                int pedidosWebId = pPedidosWeb.PEDIDOSWEBID;
+                int pedidosWebId = pPedidosWeb.PEDIDOSWEBID;                
                 foreach (var item in pPedidosWeb.PedidosWebDetalle)
                 {
-                    item.PEDIDOSWEBID = pedidosWebId;
-                    session.Save(pPedidosWeb);
+                    var pedidosWebDetalle = session.Get<BE.Pedidos.PedidosWebDetalle>(item.PEDIDOSWEBDETALLEID);
+                    if (pedidosWebDetalle == null)
+                    {
+                        item.PEDIDOSWEBID = pedidosWebId;
+                        session.Save(item);
+                    }
+                    
                 }
 
                 transaction.Commit();

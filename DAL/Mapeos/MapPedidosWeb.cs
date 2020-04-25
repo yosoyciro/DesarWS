@@ -28,16 +28,16 @@ namespace DAL.Mapeos
             Property(p => p.FechaPedidoS, m => {
                 m.Formula("dbo.ConvFechaSQL(FechaPedido)");
             });
-            ManyToOne(p => p.Persona, map =>
+            /*ManyToOne(p => p.Persona, map =>
             {
-                map.Column("PersonasId");
+                map.Column("PERSONASID");
                 map.Class(typeof(BE.Pedidos.Personas));
                 map.Fetch(FetchKind.Join); // or FetchKind.Select
                 map.NotNullable(true);
-                map.UniqueKey("¨PersonasId");
+                map.UniqueKey("PERSONASID");
                 map.Lazy(LazyRelation.NoLazy);
             }
-            );
+            );*/
         }
     }
 }

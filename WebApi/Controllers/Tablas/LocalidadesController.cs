@@ -31,5 +31,25 @@ namespace WebApi.Controllers.Tablas
             }
 
         }
+
+        [HttpGet]
+        [Route("ConsultarPorId")]
+        public IHttpActionResult ConsultarPorId(int pLocalidadesId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Content(HttpStatusCode.BadRequest, ModelState); //BadRequest(ModelState);
+            }
+            try
+            {
+                Localidades localidades = CRUDLocalidades.instancia.ConsultarPorId(pLocalidadesId);
+                return Content(HttpStatusCode.OK, localidades);
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, ex.InnerException.InnerException);
+            }
+
+        }
     }
 }

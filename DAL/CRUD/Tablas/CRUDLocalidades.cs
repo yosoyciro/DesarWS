@@ -29,5 +29,12 @@ namespace DAL.CRUD.Tablas
                 .ToList();
         }
         #endregion
+
+        #region ConsultarPorId
+        public Localidades ConsultarPorId(int pLocalidadesId)
+        {
+            return session.Get<Localidades>(pLocalidadesId);
+        }
+        #endregion
     }
 }

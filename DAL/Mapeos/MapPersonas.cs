@@ -34,7 +34,7 @@ namespace DAL.Mapeos
             Property(p => p.FechaNacimientoS, m => {
                 m.Formula("dbo.ConvFechaSQL(FechaNacimiento)");
             });
-            ManyToOne(p => p.Localidad, map =>
+            /*ManyToOne(p => p.Localidad, map =>
             {
                 map.Column("LocalidadesId");
                 map.Class(typeof(BE.Tablas.Localidades));
@@ -43,7 +43,7 @@ namespace DAL.Mapeos
                 map.UniqueKey("LocalidadesId");
                 map.Lazy(LazyRelation.NoLazy);
             }
-            );
+            );*/
         }
     }
 }

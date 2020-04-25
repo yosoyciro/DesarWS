@@ -60,10 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CRUD\PedidosWeb\CRUDPedidosWeb.cs" />
+    <Compile Include="CRUD\PedidosWeb\CRUDPedidosWebDetalle.cs" />
     <Compile Include="CRUD\PedidosWeb\CRUDPersonas.cs" />
     <Compile Include="CRUD\PedidosWeb\CRUDPersonasWeb.cs" />
     <Compile Include="CRUD\Stock\ConsultaStock.cs" />
     <Compile Include="CRUD\Tablas\CRUDArticulos.cs" />
+    <Compile Include="CRUD\Tablas\CRUDCanalesVenta.cs" />
+    <Compile Include="CRUD\Tablas\CRUDCanalesVentaForPag.cs" />
+    <Compile Include="CRUD\Tablas\CRUDEmpleados.cs" />
+    <Compile Include="CRUD\Tablas\CRUDFormasPago.cs" />
     <Compile Include="CRUD\Tablas\CRUDLocalidades.cs" />
     <Compile Include="CRUD\Tablas\CRUDMarcas.cs" />
     <Compile Include="CRUD\Tablas\CRUDModelos.cs" />
@@ -71,6 +76,10 @@
     <Compile Include="CRUD\Tablas\CRUDTiposCombustible.cs" />
     <Compile Include="CRUD\Tablas\CRUDVehiculosTipo.cs" />
     <Compile Include="Mapeos\MapArticulos.cs" />
+    <Compile Include="Mapeos\MapCanalesVenta.cs" />
+    <Compile Include="Mapeos\MapCanalesVentaForPag.cs" />
+    <Compile Include="Mapeos\MapEmpleados.cs" />
+    <Compile Include="Mapeos\MapFormasPago.cs" />
     <Compile Include="Mapeos\MapLocalidades.cs" />
     <Compile Include="Mapeos\MapMarcas.cs" />
     <Compile Include="Mapeos\MapModelos.cs" />

@@ -126,6 +126,10 @@ namespace DAL.Sesion
                     mapper.AddMapping<MapPedidosWeDetalle>();
                     mapper.AddMapping<MapPersonasWeb>();
                     mapper.AddMapping<MapPersonas>();
+                    mapper.AddMapping<MapEmpleados>();
+                    mapper.AddMapping<MapCanalesVenta>();
+                    mapper.AddMapping<MapFormasPago>();
+                    mapper.AddMapping<MapCanalesVentaForPag>();
 
                     var mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
 
