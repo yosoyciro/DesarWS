@@ -25,5 +25,9 @@ namespace BE.Stock
         public virtual string Categoria { get; set; }
         public virtual decimal PrecioVenta { get; set; }
         public virtual string Patente { get; set; }
+        public virtual int ArticulosId { get; set; }
+        public virtual int VehiculosId { get; set; }
+        public virtual int EstadosId { get; set; }
+        public virtual int SectoresId { get; set; }
     }
 }

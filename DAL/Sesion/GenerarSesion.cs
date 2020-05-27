@@ -107,8 +107,16 @@ namespace DAL.Sesion
                             cfg.Configure("D:/Desarrollo/C#/Desarm/WebApi/bin/Conexion/test.cfg.xml");
                             break;
 
+                        case "TestDatacenterRemoto":
+                            cfg.Configure("D:/Desarrollo/C#/Desarm/WebApi/bin/Conexion/testdatacenter.cfg.xml");
+                            break;
+
                         case "Produccion":
                             cfg.Configure("/inetpub/wwwroot/Desarm/bin/Conexion/produccion.cfg.xml");
+                            break;
+
+                        case "TestDatacenter":
+                            cfg.Configure("/inetpub/wwwroot/DesarmTest/bin/Conexion/testdatacenter.cfg.xml");
                             break;
                     }
 
@@ -124,12 +132,15 @@ namespace DAL.Sesion
                     mapper.AddMapping<MapProvincias>();
                     mapper.AddMapping<MapPedidosWeb>();
                     mapper.AddMapping<MapPedidosWeDetalle>();
+                    mapper.AddMapping<MapPedidosWebFormasPago>();
                     mapper.AddMapping<MapPersonasWeb>();
                     mapper.AddMapping<MapPersonas>();
                     mapper.AddMapping<MapEmpleados>();
                     mapper.AddMapping<MapCanalesVenta>();
                     mapper.AddMapping<MapFormasPago>();
                     mapper.AddMapping<MapCanalesVentaForPag>();
+                    mapper.AddMapping<MapPedidosWebArchivos>();
+                    mapper.AddMapping<MapArticulosAsociados>();
 
                     var mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
 

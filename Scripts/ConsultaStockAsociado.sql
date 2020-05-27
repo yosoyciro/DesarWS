@@ -1,5 +1,5 @@
 /****** Object:  StoredProcedure [dbo].[ConsultaStock]    Script Date: 14/3/2020 10:31:52 ******/
-DROP PROCEDURE [dbo].[ConsultaStock]
+DROP PROCEDURE [dbo].[ConsultaStockAsociado]
 GO
 
 -- =============================================
@@ -7,11 +7,9 @@ GO
 -- Create date: 2020/03/14
 -- Description:	SP para consulta de stock
 -- =============================================
-CREATE PROCEDURE [dbo].[ConsultaStock]
+CREATE PROCEDURE [dbo].[ConsultaStockAsociado]
 	-- Add the parameters for the stored procedure here
-	@pMarca INT,
-	@pModelo INT,
-	@pArticulo INT
+	@pVehiculosId INT
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -29,8 +27,7 @@ BEGIN
 	LEFT JOIN Colores C ON V.COLORESID = C.COLORESID
 	LEFT JOIN TiposCombustible TC ON TC.TIPOSCOMBUSTIBLEID = V.TIPOSCOMBUSTIBLEID
 	LEFT JOIN Categorias CA ON V.CATEGORIASID = CA.CATEGORIASID
-	WHERE V.MARCASID = @pMarca AND (0 = @pModelo OR V.MODELOSID = @pModelo) AND (0 = @pArticulo OR S.ARTICULOSID = @pArticulo)
-	AND S.ESTADOSID = 2 AND S.SECTORESID > 0
+	WHERE S.VEHICULOSID = @pVehiculosId
 END
 GO
 

@@ -7,20 +7,20 @@ using NHibernate;
 
 namespace DAL.CRUD.Stock
 {
-    public class ConsultaStock
+    public class ConsultaStockAsociado
     {
         private static ISession session;
-        public static ConsultaStock instancia = new ConsultaStock();
-        private ConsultaStock()
+        public static ConsultaStockAsociado instancia = new ConsultaStockAsociado();
+        private ConsultaStockAsociado()
         {
             session = DAL.Sesion.GenerarSesion.Instancia.Session;
         }
 
-        public IList<BE.Stock.ConsultaStock> ConsultarStock(int pMarca, int pModelo, int pArticulo)
+        public IList<BE.Stock.ConsultaStock> ConsultarStockAsociado(int pVehiculosId)
         {
             try
             {
-                return session.CreateSQLQuery("exec ConsultaStock @pMarca = N'" + pMarca + "', @pModelo = N'" + pModelo + "', @pArticulo = N'" + pArticulo + "'")
+                return session.CreateSQLQuery("exec ConsultaStockAsociado @pVehiculosId = N'" + pVehiculosId + "'")
                     .AddScalar("ArticulosStockId", NHibernateUtil.Int32)
                     .AddScalar("CodigoBarra", NHibernateUtil.String)
                     .AddScalar("Articulo", NHibernateUtil.String)

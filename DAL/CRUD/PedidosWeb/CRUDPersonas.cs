@@ -20,7 +20,7 @@ namespace DAL.CRUD.PedidosWeb
         #endregion        
 
         #region Consultar
-        public IList<BE.Pedidos.Personas> Consultar(int pTiposDocumentoId, int pNroDocumento)
+        public IList<BE.Pedidos.Personas> Consultar(int pTiposDocumentoId, double pNroDocumento)
         {
             return session.Query<BE.Pedidos.Personas>().Where(a => a.TIPOSDOCUMENTOID == pTiposDocumentoId && a.NRODOCUMENTO == pNroDocumento).ToList();
         }

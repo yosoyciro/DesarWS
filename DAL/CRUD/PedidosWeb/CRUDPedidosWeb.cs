@@ -24,19 +24,21 @@ namespace DAL.CRUD.PedidosWeb
         {
             ITransaction transaction = session.BeginTransaction();
             try
-            {
+            {               
                 //Persona
-                var persona = session.Get<BE.Pedidos.Personas>(pPedidosWeb.Persona.PERSONASID);
+                //var persona = session.Get<BE.Pedidos.Personas>(pPedidosWeb.Persona.PERSONASID);
+                var persona = session.Query<BE.Pedidos.Personas>().Where(a => a.TIPOSDOCUMENTOID == pPedidosWeb.Persona.TIPOSDOCUMENTOID && a.NRODOCUMENTO == pPedidosWeb.Persona.NRODOCUMENTO).SingleOrDefault();
                 if (persona == null)
                 {
                     persona = pPedidosWeb.Persona;
-                    session.Save(persona);
+                    session.Save(persona);                    
                     pPedidosWeb.PERSONASID = persona.PERSONASID;
                     pPedidosWeb.Persona.PERSONASID = persona.PERSONASID;
                 }                   
                 else
                 {
                     persona = pPedidosWeb.Persona;
+                    pPedidosWeb.PERSONASID = persona.PERSONASID;
                     session.Merge(persona);
                 }
                     
@@ -56,8 +58,37 @@ namespace DAL.CRUD.PedidosWeb
                     
                 }
 
-                transaction.Commit();
+                //Formas Pago
+                foreach (var item in pPedidosWeb.PedidosWebFormaPago)
+                {
+                    var pedidosWebFormasPago = session.Get<BE.Pedidos.PedidosWebFormasPago>(item.PEDIDOSWEBFORMASPAGOID);
+                    if (pedidosWebFormasPago == null)
+                    {
+                        item.PEDIDOSWEBID = pedidosWebId;
+                        session.Save(item);
+                    }
+
+                }
+
+                //Archivo
+                //foreach (var item in pPedidosWeb.PedidosWebArchivos)
+                //{
+                //    item.PEDIDOSWEBID = pedidosWebId;
+                //    session.Save(item);
+                //}
+                switch (pPedidosWeb.PedidosWebArchivos.ARCHIVO)
+                {
+                    case null:
+                        break;
+
+                    default:
+                        pPedidosWeb.PedidosWebArchivos.PEDIDOSWEBID = pedidosWebId;
+                        session.Save(pPedidosWeb.PedidosWebArchivos);
+                        break;
+                }
+
                 session.Flush();
+                transaction.Commit();                
                 return pPedidosWeb;
             }
             catch (Exception e)
@@ -65,6 +96,90 @@ namespace DAL.CRUD.PedidosWeb
                 transaction.Rollback();
                 throw e;
             }
+        }
+        #endregion
+
+        #region Consultar
+        public IList<BE.Pedidos.PedidosWeb> ConsultarPorNombre(string pNombre)
+        {
+            session.Clear();
+            //IList<BE.Pedidos.PedidosWeb> pedidosWeb = session.Query<BE.Pedidos.PedidosWeb>()
+            //    .Where(a => a.Persona.NOMBRE.Contains(pNombre))
+            //    .ToList();
+
+            //return pedidosWeb;
+            List<int> personasId = new List<int>();
+
+            IList<BE.Pedidos.Personas> personas = session.Query<BE.Pedidos.Personas>()
+                .Where(a => a.NOMBRE.Contains(pNombre))
+                .ToList();
+
+            switch (personas.Count)
+            {
+                case 0:
+                    return null;
+                default:
+                    foreach (var item in personas)
+                    {
+                        personasId.Add(item.PERSONASID);
+                    }
+                    break;
+            }
+
+            IList<BE.Pedidos.PedidosWeb> pedidosWeb = session.Query<BE.Pedidos.PedidosWeb>()
+                .Where(a => personasId.Contains(a.PERSONASID))
+                //.Where(a => a.NOMBRE.Contains(pNombre))
+                .ToList();
+
+            switch (pedidosWeb.Count)
+            {
+                case 0:
+                    break;
+
+                default:
+                    foreach (var item in pedidosWeb)
+                    {
+                        item.PedidosWebDetalle = session.Query<BE.Pedidos.PedidosWebDetalle>()
+                            .Where(a => a.PEDIDOSWEBID == item.PEDIDOSWEBID)
+                            .ToList();
+
+                        item.PedidosWebArchivos = session.Query<BE.Pedidos.PedidosWebArchivos>()
+                            .Where(a => a.PEDIDOSWEBID == item.PEDIDOSWEBID && a.TIPO == "Factura")
+                            .SingleOrDefault();
+                    }
+                    break;
+            }
+            
+            return pedidosWeb;
+        }
+
+        public IList<BE.Pedidos.PedidosWeb> ConsultarPorFecha(int pFechaDesde, int pFechaHasta)
+        {
+            IList<BE.Pedidos.PedidosWeb> pedidosWeb = session.Query<BE.Pedidos.PedidosWeb>()
+                .Where(a => a.FECHAPEDIDO >= pFechaDesde && a.FECHAPEDIDO <= pFechaHasta)
+                //.Where(a => a.NOMBRE.Contains(pNombre))
+                .ToList();
+
+            switch (pedidosWeb.Count)
+            {
+                case 0:
+                    break;
+
+                default:
+                    foreach (var item in pedidosWeb)
+                    {
+                        item.PedidosWebDetalle = session.Query<BE.Pedidos.PedidosWebDetalle>()
+                            .Where(a => a.PEDIDOSWEBID == item.PEDIDOSWEBID)
+                            .ToList();
+
+                        item.PedidosWebArchivos = session.Query<BE.Pedidos.PedidosWebArchivos>()
+                            .Where(a => a.PEDIDOSWEBID == item.PEDIDOSWEBID && a.TIPO == "Factura")
+                            .SingleOrDefault();
+                    }
+                    break;
+            }
+
+            return pedidosWeb;
         }
         #endregion
     }

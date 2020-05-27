@@ -4,16 +4,17 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using DAL.CRUD.PedidosWeb;
+using BE.Tablas;
+using DAL.CRUD.Tablas;
 
-namespace WebApi.Controllers.PedidosWeb
+namespace WebApi.Controllers.Tablas
 {
-    [RoutePrefix("api/Personas")]
-    public class PersonasController : ApiController
+    [RoutePrefix("api/ArticulosAsociados")]
+    public class ArticulosAsociadosController : ApiController
     {
         [HttpGet]
         [Route("Consultar")]
-        public IHttpActionResult Consultar(int pTiposDocumentoId, double pNroDocumento)
+        public IHttpActionResult Consultar()
         {
             if (!ModelState.IsValid)
             {
@@ -21,14 +22,13 @@ namespace WebApi.Controllers.PedidosWeb
             }
             try
             {
-                IList<BE.Pedidos.Personas> personas = CRUDPersonas.instancia.Consultar(pTiposDocumentoId, pNroDocumento);
-                return Content(HttpStatusCode.OK, personas);
+                IList<ArticulosAsociados> articulosAsociados = CRUDArticulosAsociados.instancia.Consultar();
+                return Content(HttpStatusCode.OK, articulosAsociados);
             }
             catch (Exception ex)
             {
                 return Content(HttpStatusCode.InternalServerError, ex.InnerException.InnerException);
             }
-
         }
     }
 }

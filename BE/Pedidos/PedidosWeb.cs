@@ -24,7 +24,10 @@ namespace BE.Pedidos
         public virtual int PEDIDOSID { get; set; }
         //public virtual System.Guid ROWGUID { get; set; }
         public virtual DateTime? FechaPedidoS { get; set; }
+        public virtual string COMENTARIO { get; set; }
         public virtual Pedidos.Personas Persona { get; set; }
         public virtual List<BE.Pedidos.PedidosWebDetalle> PedidosWebDetalle { get; set; }
+        public virtual List<BE.Pedidos.PedidosWebFormasPago> PedidosWebFormaPago { get; set; }
+        public virtual PedidosWebArchivos PedidosWebArchivos { get; set; }
     }
 }

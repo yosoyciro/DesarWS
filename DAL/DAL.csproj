@@ -60,10 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CRUD\PedidosWeb\CRUDPedidosWeb.cs" />
+    <Compile Include="CRUD\PedidosWeb\CRUDPedidosWebArchivos.cs" />
     <Compile Include="CRUD\PedidosWeb\CRUDPedidosWebDetalle.cs" />
     <Compile Include="CRUD\PedidosWeb\CRUDPersonas.cs" />
     <Compile Include="CRUD\PedidosWeb\CRUDPersonasWeb.cs" />
+    <Compile Include="CRUD\Stock\ConsultaStockAsociado.cs" />
     <Compile Include="CRUD\Stock\ConsultaStock.cs" />
+    <Compile Include="CRUD\Tablas\CRUDArticulosAsociados.cs" />
     <Compile Include="CRUD\Tablas\CRUDArticulos.cs" />
     <Compile Include="CRUD\Tablas\CRUDCanalesVenta.cs" />
     <Compile Include="CRUD\Tablas\CRUDCanalesVentaForPag.cs" />
@@ -76,6 +79,7 @@
     <Compile Include="CRUD\Tablas\CRUDTiposCombustible.cs" />
     <Compile Include="CRUD\Tablas\CRUDVehiculosTipo.cs" />
     <Compile Include="Mapeos\MapArticulos.cs" />
+    <Compile Include="Mapeos\MapArticulosAsociados.cs" />
     <Compile Include="Mapeos\MapCanalesVenta.cs" />
     <Compile Include="Mapeos\MapCanalesVentaForPag.cs" />
     <Compile Include="Mapeos\MapEmpleados.cs" />
@@ -84,12 +88,15 @@
     <Compile Include="Mapeos\MapMarcas.cs" />
     <Compile Include="Mapeos\MapModelos.cs" />
     <Compile Include="Mapeos\MapPedidosWeb.cs" />
+    <Compile Include="Mapeos\MapPedidosWebArchivos.cs" />
+    <Compile Include="Mapeos\MapPedidosWebFormasPago.cs" />
     <Compile Include="Mapeos\MapPedidosWeDetalle.cs" />
     <Compile Include="Mapeos\MapPersonas.cs" />
     <Compile Include="Mapeos\MapPersonasWeb.cs" />
     <Compile Include="Mapeos\MapProvincias.cs" />
     <Compile Include="Mapeos\MapTiposCombustible.cs" />
     <Compile Include="Mapeos\MapVehiculosTipo.cs" />
+    <Compile Include="Otros\ClsLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sesion\GenerarSesion.cs" />
   </ItemGroup>
@@ -102,6 +109,9 @@
     </Content>
     <Content Include="Conexion\test.cfg.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Conexion\testdatacenter.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup />
