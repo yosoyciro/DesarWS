@@ -155,6 +155,8 @@ namespace DAL.CRUD.PedidosWeb
 
         public IList<BE.Pedidos.PedidosWeb> ConsultarPorFecha(int pFechaDesde, int pFechaHasta)
         {
+            session.Clear();
+
             IList<BE.Pedidos.PedidosWeb> pedidosWeb = session.Query<BE.Pedidos.PedidosWeb>()
                 .Where(a => a.FECHAPEDIDO >= pFechaDesde && a.FECHAPEDIDO <= pFechaHasta)
                 //.Where(a => a.NOMBRE.Contains(pNombre))

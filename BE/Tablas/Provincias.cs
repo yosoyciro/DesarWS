@@ -12,5 +12,6 @@ namespace BE.Tablas
         { }
         public virtual int PROVINCIASID { get; set; }
         public virtual string NOMBRE { get; set; } 
+        public virtual int IDPROVINCIAAFIP { get; set; }
     }
 }

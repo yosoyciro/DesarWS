@@ -13,5 +13,6 @@ namespace BE.Tablas
         public virtual int LOCALIDADESID { get; set; }
         public virtual string NOMBRE { get; set; }
         public virtual int PROVINCIASID { get; set; }
+        public virtual int CP { get; set; }
     }
 }

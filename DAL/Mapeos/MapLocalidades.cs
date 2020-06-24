@@ -9,6 +9,7 @@ namespace DAL.Mapeos
             Id(x => x.LOCALIDADESID);
             Property(p => p.NOMBRE);
             Property(p => p.PROVINCIASID);
+            Property(p => p.LOCALIDADESID);
         }
     }
 }
