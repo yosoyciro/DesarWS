@@ -36,5 +36,12 @@ namespace DAL.CRUD.PedidosWeb
                 throw ex;
             }                
         }
+
+        public BE.Pedidos.PedidosWebArchivos ConsultarFactura(int pPedidosWebId)
+        {
+            return session.Query<BE.Pedidos.PedidosWebArchivos>()
+                .Where(a => a.PEDIDOSWEBID == pPedidosWebId && a.TIPO == "Factura")
+                .SingleOrDefault();
+        }
     }
 }

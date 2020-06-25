@@ -31,5 +31,24 @@ namespace WebApi.Controllers.PedidosWeb
 
 
         }
+
+        [HttpGet]
+        [Route("ConsultarFactura")]
+        public IHttpActionResult ConsultarFactura(int pPedidosWebId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Content(HttpStatusCode.BadRequest, ModelState); //BadRequest(ModelState);
+            }
+            try
+            {
+                BE.Pedidos.PedidosWebArchivos pedidosWebArchivos = CRUDPedidosWebArchivos.instancia.ConsultarFactura(pPedidosWebId);
+                return Content(HttpStatusCode.OK, pedidosWebArchivos);
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, ex.InnerException.Message);
+            }
+        }
     }
 }

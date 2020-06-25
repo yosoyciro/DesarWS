@@ -174,15 +174,18 @@ namespace DAL.CRUD.PedidosWeb
                             .Where(a => a.PEDIDOSWEBID == item.PEDIDOSWEBID)
                             .ToList();
 
-                        item.PedidosWebArchivos = session.Query<BE.Pedidos.PedidosWebArchivos>()
-                            .Where(a => a.PEDIDOSWEBID == item.PEDIDOSWEBID && a.TIPO == "Factura")
-                            .SingleOrDefault();
+                        //Los archivos se generan sobre el pedido que se consulta solamente
+                        //item.PedidosWebArchivos = session.Query<BE.Pedidos.PedidosWebArchivos>()
+                        //    .Where(a => a.PEDIDOSWEBID == item.PEDIDOSWEBID && a.TIPO == "Factura")
+                        //    .SingleOrDefault();
                     }
                     break;
             }
 
             return pedidosWeb;
         }
+
+        
         #endregion
     }
 }
