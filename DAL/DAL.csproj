@@ -76,6 +76,9 @@
     <Compile Include="CRUD\Tablas\CRUDMarcas.cs" />
     <Compile Include="CRUD\Tablas\CRUDModelos.cs" />
     <Compile Include="CRUD\Tablas\CRUDProvincias.cs" />
+    <Compile Include="CRUD\Tablas\CRUDTarjetasEmisor.cs" />
+    <Compile Include="CRUD\Tablas\CRUDtarjetasEntidades.cs" />
+    <Compile Include="CRUD\Tablas\CRUDTarjetasPlanes.cs" />
     <Compile Include="CRUD\Tablas\CRUDTiposCombustible.cs" />
     <Compile Include="CRUD\Tablas\CRUDVehiculosTipo.cs" />
     <Compile Include="Mapeos\MapArticulos.cs" />
@@ -90,10 +93,14 @@
     <Compile Include="Mapeos\MapPedidosWeb.cs" />
     <Compile Include="Mapeos\MapPedidosWebArchivos.cs" />
     <Compile Include="Mapeos\MapPedidosWebFormasPago.cs" />
+    <Compile Include="Mapeos\MapPedidosWebTarjetasCupones.cs" />
     <Compile Include="Mapeos\MapPedidosWeDetalle.cs" />
     <Compile Include="Mapeos\MapPersonas.cs" />
     <Compile Include="Mapeos\MapPersonasWeb.cs" />
     <Compile Include="Mapeos\MapProvincias.cs" />
+    <Compile Include="Mapeos\MapTarjetasEmisor.cs" />
+    <Compile Include="Mapeos\MapTarjetasEntidades.cs" />
+    <Compile Include="Mapeos\MapTarjetasPlanes.cs" />
     <Compile Include="Mapeos\MapTiposCombustible.cs" />
     <Compile Include="Mapeos\MapVehiculosTipo.cs" />
     <Compile Include="Otros\ClsLog.cs" />

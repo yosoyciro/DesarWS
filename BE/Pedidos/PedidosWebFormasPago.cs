@@ -14,5 +14,6 @@ namespace BE.Pedidos
         public virtual int PEDIDOSWEBID { get; set; }
         public virtual int FORMASPAGOID { get; set; }
         public virtual Decimal IMPORTE { get; set; }
+        public virtual PedidosWebTarjetasCupones PedidosWebTarjetasCupones { get; set; }
     }
 }

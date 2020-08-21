@@ -12,6 +12,8 @@ namespace BE.Tablas
         { }
         public virtual int FORMASPAGOID { get; set; }
         public virtual string DESCRIPCION { get; set; }
+        public virtual string TIPO { get; set; }
         public virtual byte BAJA { get; set; }
+        public virtual byte HABILITAPLANESPAGO { get; set; }
     }
 }

@@ -186,6 +186,9 @@
     <Compile Include="Controllers\Tablas\MarcasController.cs" />
     <Compile Include="Controllers\Tablas\ModelosController.cs" />
     <Compile Include="Controllers\Tablas\ProvinciasController.cs" />
+    <Compile Include="Controllers\Tablas\TarjetasEmisorController.cs" />
+    <Compile Include="Controllers\Tablas\TarjetasEntidadesController.cs" />
+    <Compile Include="Controllers\Tablas\TarjetasPlanesController.cs" />
     <Compile Include="Controllers\Tablas\TiposCombustibleController.cs" />
     <Compile Include="Controllers\Tablas\VehiculosTipoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -314,7 +317,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50214</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44384/</IISUrl>
+          <IISUrl>https://localhost:44385/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

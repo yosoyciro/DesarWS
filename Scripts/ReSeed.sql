@@ -11,6 +11,10 @@ DECLARE @PedidosWebFormasPagoId INT
 SELECT @PedidosWebFormasPagoId = MAX(PEDIDOSWEBFORMASPAGOID) + 1 FROM PedidosWebFormasPago
 EXECUTE [dbo].[ReseedIdentity] 'PedidosWebFormasPago','PEDIDOSWEBFORMASPAGOID',@PedidosWebFormasPagoId
 GO
+DECLARE @PedidosWebTarjetasCuponesId INT
+SELECT @PedidosWebTarjetasCuponesId = MAX(PEDIDOSWEBTARJETASCUPONESID) + 1 FROM PedidosWebTarjetasCupones
+EXECUTE [dbo].[ReseedIdentity] 'PedidosWebTarjetasCupones','PEDIDOSWEBTARJETASCUPONESID',@PedidosWebTarjetasCuponesId
+GO
 --Aca van las tablas que se cargan en ambos lados
 EXECUTE[dbo].[ReseedIdentity] 'Personas','PERSONASID',0
 GO

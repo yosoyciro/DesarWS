@@ -8,7 +8,9 @@ namespace DAL.Mapeos
         {
             Id(x => x.FORMASPAGOID);
             Property(p => p.DESCRIPCION);
+            Property(p => p.TIPO);
             Property(p => p.BAJA);
+            Property(p => p.HABILITAPLANESPAGO);
         }
     }
 }

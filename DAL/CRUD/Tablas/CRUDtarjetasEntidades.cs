@@ -8,22 +8,22 @@ using NHibernate;
 
 namespace DAL.CRUD.Tablas
 {
-    public class CRUDFormasPago
+    public class CRUDTarjetasEntidades
     {
         #region Singleton
         private static ISession session;
-        public static CRUDFormasPago instancia = new CRUDFormasPago();
+        public static CRUDTarjetasEntidades instancia = new CRUDTarjetasEntidades();
 
-        private CRUDFormasPago()
+        private CRUDTarjetasEntidades()
         {
             session = DAL.Sesion.GenerarSesion.Instancia.Session;
         }
         #endregion        
 
         #region Consultar
-        public IList<FormasPago> Consultar()
+        public IList<TarjetasEntidades> Consultar()
         {
-            return session.Query<FormasPago>().Where(f => f.FORMASPAGOID > 0).ToList();
+            return session.Query<TarjetasEntidades>().ToList();
         }
         #endregion
     }

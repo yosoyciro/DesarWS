@@ -64,8 +64,16 @@ namespace DAL.CRUD.PedidosWeb
                     var pedidosWebFormasPago = session.Get<BE.Pedidos.PedidosWebFormasPago>(item.PEDIDOSWEBFORMASPAGOID);
                     if (pedidosWebFormasPago == null)
                     {
+                        var tarjetaCupon = item.PedidosWebTarjetasCupones;
+
                         item.PEDIDOSWEBID = pedidosWebId;
                         session.Save(item);
+
+                        if (tarjetaCupon != null)
+                        {
+                            tarjetaCupon.PEDIDOSWEBFORMASPAGOID = item.PEDIDOSWEBFORMASPAGOID;
+                            session.Save(tarjetaCupon);
+                        }
                     }
 
                 }

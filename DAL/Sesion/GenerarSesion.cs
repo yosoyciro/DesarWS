@@ -7,6 +7,7 @@ using NHibernate.Tool.hbm2ddl;
 using System;
 using DAL.Mapeos;
 using System.Configuration;
+using BE.Tablas;
 
 namespace DAL.Sesion
 {
@@ -141,6 +142,10 @@ namespace DAL.Sesion
                     mapper.AddMapping<MapCanalesVentaForPag>();
                     mapper.AddMapping<MapPedidosWebArchivos>();
                     mapper.AddMapping<MapArticulosAsociados>();
+                    mapper.AddMapping<MapPedidosWebTarjetasCupones>();
+                    mapper.AddMapping<MapTarjetasEmisor>();
+                    mapper.AddMapping<MapTarjetasEntidades>();
+                    mapper.AddMapping<MapTarjetasPlanes>();
 
                     var mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
 
