@@ -79,6 +79,7 @@
     <Compile Include="CRUD\Tablas\CRUDTarjetasEmisor.cs" />
     <Compile Include="CRUD\Tablas\CRUDtarjetasEntidades.cs" />
     <Compile Include="CRUD\Tablas\CRUDTarjetasPlanes.cs" />
+    <Compile Include="CRUD\Tablas\CRUDTarjetasPlanesEmisor.cs" />
     <Compile Include="CRUD\Tablas\CRUDTiposCombustible.cs" />
     <Compile Include="CRUD\Tablas\CRUDVehiculosTipo.cs" />
     <Compile Include="Mapeos\MapArticulos.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Mapeos\MapTarjetasEmisor.cs" />
     <Compile Include="Mapeos\MapTarjetasEntidades.cs" />
     <Compile Include="Mapeos\MapTarjetasPlanes.cs" />
+    <Compile Include="Mapeos\MapTarjetasPlanesEmisor.cs" />
     <Compile Include="Mapeos\MapTiposCombustible.cs" />
     <Compile Include="Mapeos\MapVehiculosTipo.cs" />
     <Compile Include="Otros\ClsLog.cs" />

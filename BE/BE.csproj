@@ -63,6 +63,7 @@
     <Compile Include="Tablas\TarjetasEmisor.cs" />
     <Compile Include="Tablas\TarjetasEntidades.cs" />
     <Compile Include="Tablas\TarjetasPlanes.cs" />
+    <Compile Include="Tablas\TarjetasPlanesEmisor.cs" />
     <Compile Include="Tablas\TiposCombustible.cs" />
     <Compile Include="Tablas\Vehiculos.cs" />
     <Compile Include="Tablas\VehiculosTipo.cs" />

@@ -189,6 +189,7 @@
     <Compile Include="Controllers\Tablas\TarjetasEmisorController.cs" />
     <Compile Include="Controllers\Tablas\TarjetasEntidadesController.cs" />
     <Compile Include="Controllers\Tablas\TarjetasPlanesController.cs" />
+    <Compile Include="Controllers\Tablas\TarjetasPlanesEmisorController.cs" />
     <Compile Include="Controllers\Tablas\TiposCombustibleController.cs" />
     <Compile Include="Controllers\Tablas\VehiculosTipoController.cs" />
     <Compile Include="Global.asax.cs">
