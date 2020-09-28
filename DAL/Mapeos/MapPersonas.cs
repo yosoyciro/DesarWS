@@ -22,7 +22,7 @@ namespace DAL.Mapeos
             Property(p => p.MAIL);
             Property(p => p.CUIT);
             Property(p => p.FECHANACIMIENTO);                        
-            Property(p => p.LOCALIDADESID);
+            //Property(p => p.LOCALIDADESID);
             Property(p => p.SITUACIONIVAID);
             Property(p => p.TIPOSDOCUMENTOID);
             Property(p => p.OBSERVACIONES);
@@ -37,6 +37,15 @@ namespace DAL.Mapeos
             Property(p => p.ESTADOCTACTE);
             //Property(p => p.BLOQUEOSID);
             Property(p => p.TIENECTACTE);
+            ManyToOne(persona => persona.Localidad, map =>
+            {
+                map.Column("LocalidadesId");
+                map.Class(typeof(BE.Tablas.Localidades));
+                map.Fetch(FetchKind.Select);
+                map.UniqueKey("LocalidadesId");
+                map.Lazy(LazyRelation.NoLazy);
+                map.NotFound(NotFoundMode.Ignore);
+            });
         }
     }
 }

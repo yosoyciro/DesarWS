@@ -24,6 +24,11 @@ namespace DAL.CRUD.PedidosWeb
         {
             return session.Query<BE.Pedidos.Personas>().Where(a => a.TIPOSDOCUMENTOID == pTiposDocumentoId && a.NRODOCUMENTO == pNroDocumento).ToList();
         }
+
+        public IList<BE.Pedidos.Personas> ConsultarPorNombre(string pNombre)
+        {
+            return session.Query<BE.Pedidos.Personas>().Where(a => a.NOMBRE.Contains(pNombre)).ToList();
+        }
         #endregion
     }
 }

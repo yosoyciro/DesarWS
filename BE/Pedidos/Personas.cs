@@ -20,7 +20,7 @@ namespace BE.Pedidos
         public virtual string MAIL { get; set; }
         public virtual string CUIT { get; set; }
         public virtual int FECHANACIMIENTO { get; set; }
-        public virtual int LOCALIDADESID { get; set; }
+        //public virtual int LOCALIDADESID { get; set; }
         public virtual int SITUACIONIVAID { get; set; }
         public virtual int TIPOSDOCUMENTOID { get; set; }
         public virtual string OBSERVACIONES { get; set; }

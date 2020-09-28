@@ -30,5 +30,25 @@ namespace WebApi.Controllers.PedidosWeb
             }
 
         }
+
+        [HttpGet]
+        [Route("ConsultarPorNombre")]
+        public IHttpActionResult ConsultarPorNombre(string pNombre)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Content(HttpStatusCode.BadRequest, ModelState); //BadRequest(ModelState);
+            }
+            try
+            {
+                IList<BE.Pedidos.Personas> personas = CRUDPersonas.instancia.ConsultarPorNombre(pNombre);
+                return Content(HttpStatusCode.OK, personas);
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, ex.InnerException.InnerException);
+            }
+
+        }
     }
 }
