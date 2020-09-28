@@ -46,6 +46,7 @@
     <Compile Include="Pedidos\PedidosWebDetalle.cs" />
     <Compile Include="Pedidos\PedidosWebFormasPago.cs" />
     <Compile Include="Pedidos\PedidosWebTarjetasCupones.cs" />
+    <Compile Include="Pedidos\PersonasConsulta.cs" />
     <Compile Include="Pedidos\Personas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stock\ConsultaStock.cs" />

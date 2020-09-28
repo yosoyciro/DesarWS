@@ -27,7 +27,25 @@ namespace DAL.CRUD.PedidosWeb
 
         public IList<BE.Pedidos.Personas> ConsultarPorNombre(string pNombre)
         {
-            return session.Query<BE.Pedidos.Personas>().Where(a => a.NOMBRE.Contains(pNombre)).ToList();
+            var personas = session.Query<BE.Pedidos.Personas>().Where(a => a.NOMBRE.Contains(pNombre)).ToList();
+
+
+            /*List<BE.Pedidos.PersonasConsulta> oPersonaConsulta = new List<BE.Pedidos.PersonasConsulta>();
+
+            foreach (var item in personas)
+            {
+                BE.Pedidos.PersonasConsulta personasConsulta = new BE.Pedidos.PersonasConsulta
+                {
+                    PERSONASID = item.PERSONASID,
+                    NOMBRE = item.NOMBRE,
+                    DIRECCION1 = item.DIRECCION1,
+                    NRODOCUMENTO = item.NRODOCUMENTO,
+                };
+                oPersonaConsulta.Add(personasConsulta);
+            }
+
+            return oPersonaConsulta;*/
+            return personas;
         }
         #endregion
     }

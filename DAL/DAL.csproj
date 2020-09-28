@@ -97,6 +97,7 @@
     <Compile Include="Mapeos\MapPedidosWebTarjetasCupones.cs" />
     <Compile Include="Mapeos\MapPedidosWeDetalle.cs" />
     <Compile Include="Mapeos\MapPersonas.cs" />
+    <Compile Include="Mapeos\MapPersonasConsulta.cs" />
     <Compile Include="Mapeos\MapPersonasWeb.cs" />
     <Compile Include="Mapeos\MapProvincias.cs" />
     <Compile Include="Mapeos\MapTarjetasEmisor.cs" />

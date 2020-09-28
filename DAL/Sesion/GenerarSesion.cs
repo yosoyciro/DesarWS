@@ -147,6 +147,7 @@ namespace DAL.Sesion
                     mapper.AddMapping<MapTarjetasEntidades>();
                     mapper.AddMapping<MapTarjetasPlanes>();
                     mapper.AddMapping<MapTarjetasPlanesEmisor>();
+                    mapper.AddMapping<MapPersonasConsulta>();
 
                     var mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
 
