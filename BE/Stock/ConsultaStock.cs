@@ -29,5 +29,6 @@ namespace BE.Stock
         public virtual int VehiculosId { get; set; }
         public virtual int EstadosId { get; set; }
         public virtual int SectoresId { get; set; }
+        public virtual string Ubicacion { get; set; }
     }
 }

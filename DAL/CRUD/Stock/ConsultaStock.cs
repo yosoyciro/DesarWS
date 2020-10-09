@@ -40,6 +40,7 @@ namespace DAL.CRUD.Stock
                     .AddScalar("VehiculosId", NHibernateUtil.Int32)
                     .AddScalar("EstadosId", NHibernateUtil.Int32)
                     .AddScalar("SectoresId", NHibernateUtil.Int32)
+                    .AddScalar("Ubicacion", NHibernateUtil.String)
                     .SetResultTransformer(NHibernate.Transform.Transformers.AliasToBean(typeof(BE.Stock.ConsultaStock)))
                     .List<BE.Stock.ConsultaStock>()
                     .ToList();
