@@ -29,6 +29,7 @@ namespace DAL.Mapeos
                 m.Formula("dbo.ConvFechaSQL(FechaPedido)");
             });
             Property(p => p.COMENTARIO);
+            Property(p => p.MERCADOENVIOS);
             /*ManyToOne(p => p.Persona, map =>
             {
                 map.Column("PERSONASID");
