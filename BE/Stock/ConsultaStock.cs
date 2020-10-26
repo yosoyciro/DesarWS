@@ -30,5 +30,7 @@ namespace BE.Stock
         public virtual int EstadosId { get; set; }
         public virtual int SectoresId { get; set; }
         public virtual string Ubicacion { get; set; }
+        public virtual int DaniosId { get; set; }
+        public virtual string DaniosDescripcion { get; set; }
     }
 }

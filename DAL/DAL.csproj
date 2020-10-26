@@ -66,6 +66,8 @@
     <Compile Include="CRUD\PedidosWeb\CRUDPersonasWeb.cs" />
     <Compile Include="CRUD\Stock\ConsultaStockAsociado.cs" />
     <Compile Include="CRUD\Stock\ConsultaStock.cs" />
+    <Compile Include="CRUD\Stock\CRUDDaniosFotos.cs" />
+    <Compile Include="CRUD\Stock\CRUDDaniosSecuencias.cs" />
     <Compile Include="CRUD\Tablas\CRUDArticulosAsociados.cs" />
     <Compile Include="CRUD\Tablas\CRUDArticulos.cs" />
     <Compile Include="CRUD\Tablas\CRUDCanalesVenta.cs" />
@@ -86,6 +88,9 @@
     <Compile Include="Mapeos\MapArticulosAsociados.cs" />
     <Compile Include="Mapeos\MapCanalesVenta.cs" />
     <Compile Include="Mapeos\MapCanalesVentaForPag.cs" />
+    <Compile Include="Mapeos\MapDanios.cs" />
+    <Compile Include="Mapeos\MapDaniosFotos.cs" />
+    <Compile Include="Mapeos\MapDaniosSecuencias.cs" />
     <Compile Include="Mapeos\MapEmpleados.cs" />
     <Compile Include="Mapeos\MapFormasPago.cs" />
     <Compile Include="Mapeos\MapLocalidades.cs" />

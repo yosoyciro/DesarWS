@@ -50,6 +50,9 @@
     <Compile Include="Pedidos\Personas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stock\ConsultaStock.cs" />
+    <Compile Include="Stock\Danios.cs" />
+    <Compile Include="Stock\DaniosFotos.cs" />
+    <Compile Include="Stock\DaniosSecuencias.cs" />
     <Compile Include="Tablas\Articulos.cs" />
     <Compile Include="Tablas\ArticulosAsociados.cs" />
     <Compile Include="Tablas\CanalesVenta.cs" />

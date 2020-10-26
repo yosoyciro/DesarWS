@@ -148,6 +148,9 @@ namespace DAL.Sesion
                     mapper.AddMapping<MapTarjetasPlanes>();
                     mapper.AddMapping<MapTarjetasPlanesEmisor>();
                     mapper.AddMapping<MapPersonasConsulta>();
+                    mapper.AddMapping<MapDanios>();
+                    mapper.AddMapping<MapDaniosFotos>();
+                    mapper.AddMapping<MapDaniosSecuencias>();
 
                     var mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
 
