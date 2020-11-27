@@ -176,6 +176,7 @@
     <Compile Include="Controllers\PedidosWeb\PersonasWebController.cs" />
     <Compile Include="Controllers\Stock\ConsultaStockAsociadoController.cs" />
     <Compile Include="Controllers\Stock\ConsultaStockController.cs" />
+    <Compile Include="Controllers\Stock\ConsultaStockRemitosController.cs" />
     <Compile Include="Controllers\Stock\DaniosFotosController.cs" />
     <Compile Include="Controllers\Stock\DaniosSecuenciasController.cs" />
     <Compile Include="Controllers\Tablas\ArticulosAsociadosController.cs" />

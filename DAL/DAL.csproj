@@ -66,6 +66,7 @@
     <Compile Include="CRUD\PedidosWeb\CRUDPersonasWeb.cs" />
     <Compile Include="CRUD\Stock\ConsultaStockAsociado.cs" />
     <Compile Include="CRUD\Stock\ConsultaStock.cs" />
+    <Compile Include="CRUD\Stock\ConsultaStockRemitos.cs" />
     <Compile Include="CRUD\Stock\CRUDDaniosFotos.cs" />
     <Compile Include="CRUD\Stock\CRUDDaniosSecuencias.cs" />
     <Compile Include="CRUD\Tablas\CRUDArticulosAsociados.cs" />

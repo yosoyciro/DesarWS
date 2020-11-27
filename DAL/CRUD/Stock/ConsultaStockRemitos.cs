@@ -7,20 +7,20 @@ using NHibernate;
 
 namespace DAL.CRUD.Stock
 {
-    public class ConsultaStock
+    public class ConsultaStockRemitos
     {
         private static ISession session;
-        public static ConsultaStock instancia = new ConsultaStock();
-        private ConsultaStock()
+        public static ConsultaStockRemitos instancia = new ConsultaStockRemitos();
+        private ConsultaStockRemitos()
         {
             session = DAL.Sesion.GenerarSesion.Instancia.Session;
         }
 
-        public IList<BE.Stock.ConsultaStock> ConsultarStock(int pMarca, int pModelo, int pArticulo)
+        public IList<BE.Stock.ConsultaStockRemitos> ConsultarStockRemitos(string pPatente, int pLegajo)
         {
             try
             {
-                return session.CreateSQLQuery("exec ConsultaStock @pMarca = N'" + pMarca + "', @pModelo = N'" + pModelo + "', @pArticulo = N'" + pArticulo + "'")
+                return session.CreateSQLQuery("exec ConsultaStockRemitos @pPatente = N'" + pPatente + "', @pLegajo = N'" + pLegajo + "'")
                     .AddScalar("ArticulosStockId", NHibernateUtil.Int32)
                     .AddScalar("CodigoBarra", NHibernateUtil.String)
                     .AddScalar("Articulo", NHibernateUtil.String)
@@ -30,21 +30,11 @@ namespace DAL.CRUD.Stock
                     .AddScalar("Motor", NHibernateUtil.String)
                     .AddScalar("TipoVehiculo", NHibernateUtil.String)
                     .AddScalar("Anio", NHibernateUtil.Int32)
-                    .AddScalar("Color", NHibernateUtil.String)
-                    .AddScalar("TipoCombustible", NHibernateUtil.String)
-                    .AddScalar("TipoCaja", NHibernateUtil.String)
-                    .AddScalar("Categoria", NHibernateUtil.String)
-                    .AddScalar("PrecioVenta", NHibernateUtil.Decimal)
                     .AddScalar("Patente", NHibernateUtil.String)
                     .AddScalar("ArticulosId", NHibernateUtil.Int32)
                     .AddScalar("VehiculosId", NHibernateUtil.Int32)
-                    .AddScalar("EstadosId", NHibernateUtil.Int32)
-                    .AddScalar("SectoresId", NHibernateUtil.Int32)
-                    .AddScalar("Ubicacion", NHibernateUtil.String)
-                    .AddScalar("DaniosId", NHibernateUtil.Int32)
-                    .AddScalar("DaniosDescripcion", NHibernateUtil.String) 
-                    .SetResultTransformer(NHibernate.Transform.Transformers.AliasToBean(typeof(BE.Stock.ConsultaStock)))
-                    .List<BE.Stock.ConsultaStock>()
+                    .SetResultTransformer(NHibernate.Transform.Transformers.AliasToBean(typeof(BE.Stock.ConsultaStockRemitos)))
+                    .List<BE.Stock.ConsultaStockRemitos>()
                     .ToList();
             }
 
