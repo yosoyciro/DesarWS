@@ -51,5 +51,25 @@ namespace WebApi.Controllers.Tablas
             }
 
         }
+
+        [HttpPost]
+        [Route("Agregar")]
+        public IHttpActionResult Agregar(Localidades pLocalidad)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Content(HttpStatusCode.BadRequest, ModelState); //BadRequest(ModelState);
+            }
+            try
+            {
+                Localidades localidades = CRUDLocalidades.instancia.Agregar(pLocalidad);
+                return Content(HttpStatusCode.OK, localidades);
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, ex.InnerException.InnerException);
+            }
+
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using NHibernate.Mapping.ByCode.Conformist;
+using NHibernate.Mapping.ByCode;
 
 namespace DAL.Mapeos
 {
@@ -6,10 +7,15 @@ namespace DAL.Mapeos
     {
         public MapLocalidades()
         {
-            Id(x => x.LOCALIDADESID);
+            Id(x => x.LOCALIDADESID, id =>
+            {
+                id.Generator(
+                    Generators.Identity
+                    );
+            });
             Property(p => p.NOMBRE);
             Property(p => p.PROVINCIASID);
-            Property(p => p.LOCALIDADESID);
+            Property(p => p.CP);
         }
     }
 }

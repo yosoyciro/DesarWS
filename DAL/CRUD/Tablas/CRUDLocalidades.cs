@@ -36,5 +36,35 @@ namespace DAL.CRUD.Tablas
             return session.Get<Localidades>(pLocalidadesId);
         }
         #endregion
+
+        public Localidades Agregar(Localidades pLocalidad)
+        {
+            var localidad = session.Query<BE.Tablas.Localidades>().Where(a => a.NOMBRE == pLocalidad.NOMBRE && a.PROVINCIASID == pLocalidad.PROVINCIASID).SingleOrDefault();
+            if (localidad == null)
+            {
+                ITransaction transaction = session.BeginTransaction();
+                try
+                {
+                    localidad = pLocalidad;
+                    session.Save(localidad);
+
+                    //session.Flush();
+                    transaction.Commit();
+                }
+
+                catch (Exception e)
+                {
+                    transaction.Rollback();
+                    throw e;
+                }
+            }
+            else
+            {
+                localidad = pLocalidad;
+            }
+            
+            return localidad;
+           
+        }
     }
 }
