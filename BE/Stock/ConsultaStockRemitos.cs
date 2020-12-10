@@ -22,5 +22,6 @@ namespace BE.Stock
         public virtual string Patente { get; set; }
         public virtual int ArticulosId { get; set; }
         public virtual int VehiculosId { get; set; }
+        public virtual int NroLegajo { get; set; }
     }
 }
