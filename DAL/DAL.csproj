@@ -87,6 +87,7 @@
     <Compile Include="CRUD\Tablas\CRUDVehiculosTipo.cs" />
     <Compile Include="Mapeos\MapArticulos.cs" />
     <Compile Include="Mapeos\MapArticulosAsociados.cs" />
+    <Compile Include="Mapeos\MapBloqueos.cs" />
     <Compile Include="Mapeos\MapCanalesVenta.cs" />
     <Compile Include="Mapeos\MapCanalesVentaForPag.cs" />
     <Compile Include="Mapeos\MapDanios.cs" />

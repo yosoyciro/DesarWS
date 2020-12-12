@@ -31,10 +31,11 @@ namespace BE.Pedidos
         public virtual string ESTADOCTACTE { get; set; }
         public virtual byte DIASVENCIMIENTOFACTURA { get; set; }
         public virtual Decimal DESCUENTO { get; set; }
-        public virtual int BLOQUEOSID { get; set; }
+        //public virtual int BLOQUEOSID { get; set; }
         public virtual string SEXO { get; set; }
         //public virtual System.Guid ROWGUID { get; set; }
         public virtual DateTime? FechaNacimientoS { get; set; }
         public virtual Tablas.Localidades Localidad { get; set; }
+        public virtual Bloqueos Bloqueo { get; set; }
     }
 }

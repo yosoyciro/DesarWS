@@ -151,6 +151,7 @@ namespace DAL.Sesion
                     mapper.AddMapping<MapDanios>();
                     mapper.AddMapping<MapDaniosFotos>();
                     mapper.AddMapping<MapDaniosSecuencias>();
+                    mapper.AddMapping<MapBloqueos>();
 
                     var mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
 

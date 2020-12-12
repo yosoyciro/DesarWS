@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pedidos\Bloqueos.cs" />
     <Compile Include="Pedidos\PedidosWeb.cs" />
     <Compile Include="Pedidos\PedidosWebArchivos.cs" />
     <Compile Include="Pedidos\PedidosWebDetalle.cs" />

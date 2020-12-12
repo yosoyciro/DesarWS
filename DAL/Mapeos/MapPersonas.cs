@@ -46,6 +46,14 @@ namespace DAL.Mapeos
                 map.Lazy(LazyRelation.NoLazy);
                 map.NotFound(NotFoundMode.Ignore);
             });
+            ManyToOne(p => p.Bloqueo, map =>
+            {
+                map.Column("BloqueosId");
+                map.Class(typeof(BE.Pedidos.Bloqueos));
+                map.UniqueKey("BloqueosId");
+                map.Lazy(LazyRelation.NoLazy);
+                map.NotFound(NotFoundMode.Ignore);
+            });
         }
     }
 }
