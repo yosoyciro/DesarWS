@@ -105,11 +105,11 @@ namespace DAL.Sesion
                     switch (appconfig["Ambiente"])
                     {
                         case "Test":
-                            cfg.Configure("D:/Desarrollo/C#/Desarm/WebApi/bin/Conexion/test.cfg.xml");
+                            cfg.Configure("Z:/Desarrollo/C#/Desarm/WebApi/bin/Conexion/test.cfg.xml");
                             break;
 
                         case "TestDatacenterRemoto":
-                            cfg.Configure("D:/Desarrollo/C#/Desarm/WebApi/bin/Conexion/testdatacenter.cfg.xml");
+                            cfg.Configure("Z:/Desarrollo/C#/Desarm/WebApi/bin/Conexion/testdatacenter.cfg.xml");
                             break;
 
                         case "Produccion":

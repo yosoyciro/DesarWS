@@ -179,6 +179,7 @@
     <Compile Include="Controllers\Stock\ConsultaStockRemitosController.cs" />
     <Compile Include="Controllers\Stock\DaniosFotosController.cs" />
     <Compile Include="Controllers\Stock\DaniosSecuenciasController.cs" />
+    <Compile Include="Controllers\Stock\LegajosController.cs" />
     <Compile Include="Controllers\Tablas\ArticulosAsociadosController.cs" />
     <Compile Include="Controllers\Tablas\ArticulosController.cs" />
     <Compile Include="Controllers\Tablas\CanalesVentaController.cs" />
@@ -255,6 +256,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Legajos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

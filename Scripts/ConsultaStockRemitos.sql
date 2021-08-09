@@ -1,13 +1,9 @@
-/****** Object:  StoredProcedure [dbo].[ConsultaStockRemitos]    Script Date: 14/3/2020 10:31:52 ******/
-DROP PROCEDURE [dbo].[ConsultaStockRemitos]
-GO
-
 -- =============================================
 -- Author:		Ciro
 -- Create date: 2020/11/25
 -- Description:	SP para consulta de stock para remitos
 -- =============================================
-CREATE  PROCEDURE [dbo].[ConsultaStockRemitos]
+ALTER  PROCEDURE [dbo].[ConsultaStockRemitos]
 	-- Add the parameters for the stored procedure here
 	@pPatente VARCHAR(15),@pLegajo INT
 AS
@@ -28,8 +24,9 @@ BEGIN
 	INNER JOIN Articulos A ON S.ARTICULOSID = A.ARTICULOSID
 	INNER JOIN VehiculosTipo VT ON V.VEHICULOSTIPOID = VT.VEHICULOSTIPOID	
 	INNER JOIN Formulario04D F ON V.VEHICULOSID = F.VEHICULOSID
-	WHERE V.PATENTE = @pPatente OR F.NROLEGAJO = @pLegajo
+	WHERE (V.PATENTE = @pPatente OR F.NROLEGAJO = @pLegajo)
 	AND S.ESTADOSID = @EstadosIdEnDesarme
+	AND S.ARTICULOSSTOCKID NOT IN (SELECT ARTICULOSSTOCKID FROM RemitosDetalle WHERE REMITOSID IN (SELECT REMITOSID FROM Remitos WHERE ESTADO IN ('P', 'C')))
 END
 
 

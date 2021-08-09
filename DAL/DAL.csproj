@@ -69,6 +69,7 @@
     <Compile Include="CRUD\Stock\ConsultaStockRemitos.cs" />
     <Compile Include="CRUD\Stock\CRUDDaniosFotos.cs" />
     <Compile Include="CRUD\Stock\CRUDDaniosSecuencias.cs" />
+    <Compile Include="CRUD\Stock\Legajos.cs" />
     <Compile Include="CRUD\Tablas\CRUDArticulosAsociados.cs" />
     <Compile Include="CRUD\Tablas\CRUDArticulos.cs" />
     <Compile Include="CRUD\Tablas\CRUDCanalesVenta.cs" />
