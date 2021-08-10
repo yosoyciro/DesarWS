@@ -26,7 +26,7 @@ namespace DAL.CRUD.Stock
 
         }
 
-        public BE.Stock.Legajos ObtenerImagenes(string pPatente, string pCodigoOblea)
+        public BE.Stock.Legajos ObtenerListaImagenes(string pPatente, string pCodigoOblea)
         {
             var appconfig = ConfigurationManager.AppSettings;
 
@@ -42,15 +42,38 @@ namespace DAL.CRUD.Stock
 
             foreach (FileInfo file in Files)
             {
-                byte[] archivo = ReadAllBytes(file);
                 var legajoImagen = new BE.Stock.LegajoImagen();
                 legajoImagen.NombreArchivo = file.Name;
-                legajoImagen.Imagen = archivo;
 
                 legajo.LegajoImagenes.Add(legajoImagen);
             }
 
             return legajo;
+        }
+
+        public BE.Stock.ImagenPieza ObtenerImagen(string pPatente, string pImagen)
+        {
+            var appconfig = ConfigurationManager.AppSettings;
+
+            var imagen = new BE.Stock.ImagenPieza();
+
+            string path = appconfig["PathLegajos"] + "\\" + pPatente + "\\";
+            DirectoryInfo d = new DirectoryInfo(path);
+
+            FileInfo[] Files = d.GetFiles(pImagen);
+
+            foreach (FileInfo file in Files)
+            {
+                byte[] archivo = ReadAllBytes(file);
+                //var legajoImagen = new BE.Stock.LegajoImagen();
+                //legajoImagen.NombreArchivo = file.Name;
+                ////legajoImagen.Imagen = archivo;
+
+                //legajo.LegajoImagenes.Add(legajoImagen);
+                imagen.Imagen = archivo;
+            }
+
+            return imagen;
         }
 
         private static Byte[] ReadAllBytes(FileInfo pArchivo)

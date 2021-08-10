@@ -55,6 +55,7 @@
     <Compile Include="Stock\Danios.cs" />
     <Compile Include="Stock\DaniosFotos.cs" />
     <Compile Include="Stock\DaniosSecuencias.cs" />
+    <Compile Include="Stock\ImagenPieza.cs" />
     <Compile Include="Stock\Legajos.cs" />
     <Compile Include="Stock\LegajoImagen.cs" />
     <Compile Include="Tablas\Articulos.cs" />

@@ -15,9 +15,17 @@ namespace WebApi.Controllers.Stock
         public IHttpActionResult ImagenesPieza(string pPatente, string pCodigoOblea)
         {
             var legajo = new DAL.CRUD.Stock.Legajos();
-            var leg = legajo.ObtenerImagenes(pPatente, pCodigoOblea);
+            var leg = legajo.ObtenerListaImagenes(pPatente, pCodigoOblea);
             return Content(HttpStatusCode.OK, leg);
         }
-        
+
+        [HttpGet]
+        [Route("ObtenerImagen")]
+        public IHttpActionResult ObtenerImagen(string pPatente, string pImagen)
+        {
+            var legajo = new DAL.CRUD.Stock.Legajos();
+            var leg = legajo.ObtenerImagen(pPatente, pImagen);
+            return Content(HttpStatusCode.OK, leg);
+        }
     }
 }

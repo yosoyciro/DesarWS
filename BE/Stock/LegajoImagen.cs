@@ -10,6 +10,6 @@ namespace BE.Stock
     {
         public LegajoImagen() { }
         public virtual string NombreArchivo { get; set; }
-        public virtual byte[] Imagen { get; set; }
+        //public virtual byte[] Imagen { get; set; }
     }
 }
