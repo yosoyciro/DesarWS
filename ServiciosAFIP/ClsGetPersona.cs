@@ -22,7 +22,7 @@ namespace PadronAFIP
                 return null;
             }
 
-            ClsLog.instancia.EscribirLog("Ingresa a Consultar");
+            //ClsLog.instancia.EscribirLog("Ingresa a Consultar");
             var appconfig = ConfigurationManager.AppSettings;             
 
             //Leo xml del ticket con el token y el sign
@@ -46,17 +46,17 @@ namespace PadronAFIP
 
         public AFIP.PadronA5.personaReturn ConsultarA5(double pCUIT, string pMetodoPadron)
         {
-            ClsLog.instancia.EscribirLog("Ingresa a Consultar A5");
+            //ClsLog.instancia.EscribirLog("Ingresa a Consultar A5");
             if (ClsLogin.instancia.Login(pMetodoPadron) == false)
             {
-                ClsLog.instancia.EscribirLog("Error en Login");
-                return null;
+                //ClsLog.instancia.EscribirLog("Error en Login");
+                //return null;
             }
-            
+
             var appconfig = ConfigurationManager.AppSettings;
 
             //Leo xml del ticket con el token y el sign
-            ClsLog.instancia.EscribirLog("Leo ticket A5");
+            //ClsLog.instancia.EscribirLog("Leo ticket A5");
             XmlDocument XmlTicket = new XmlDocument();
             XmlTicket.Load(appconfig["TicketA5"]);
 
@@ -70,9 +70,9 @@ namespace PadronAFIP
             AFIP.PadronA5.personaReturn personaA5Return = new AFIP.PadronA5.personaReturn();
 
             padrona5.Url = appconfig["URLPadronProduccionA5"].ToString();
-            ClsLog.instancia.EscribirLog("GetPersona A5");
+            //ClsLog.instancia.EscribirLog("GetPersona A5");
             personaA5Return = padrona5.getPersona(token, sign, cuitrepresentada, cuitconsultada);
-            ClsLog.instancia.EscribirLog("personaA5Return A5");
+            //ClsLog.instancia.EscribirLog("personaA5Return A5");
             return personaA5Return;
         }
     }

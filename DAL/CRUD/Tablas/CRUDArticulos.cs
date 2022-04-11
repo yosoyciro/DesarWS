@@ -23,7 +23,7 @@ namespace DAL.CRUD.Tablas
         #region Consultar
         public IList<Articulos> Consultar()
         {
-            return session.Query<Articulos>().Where(a => a.USAREN04D == 1).ToList();
+            return session.Query<Articulos>().Where(a => a.ARTICULOSID > 0 && (a.USAREN04D == 1 || a.ESSERVICIO == 0)).ToList();
         }
         #endregion
     }

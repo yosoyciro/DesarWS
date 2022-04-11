@@ -44,7 +44,7 @@ namespace PadronAFIP
         }
         private bool VerificarTicket(string pMetodoPadron)
         {
-            ClsLog.instancia.EscribirLog("vERIFICAR TICKET");
+            //ClsLog.instancia.EscribirLog("vERIFICAR TICKET");
             bool ret = false;
             var appconfig = ConfigurationManager.AppSettings;
             //Veo si existe el ticket y leo la info a ver si es válido            
@@ -75,12 +75,12 @@ namespace PadronAFIP
                 {
                     if (XmlTicket.SelectSingleNode("//token") == null)
                     {
-                        ClsLog.instancia.EscribirLog("No existe el token. Se pide ticket.");
+                        //ClsLog.instancia.EscribirLog("No existe el token. Se pide ticket.");
                         ret = false; //esta generado pero no hay token
                     }
                     else
                     {
-                        ClsLog.instancia.EscribirLog("Existe el token. Sirve el ticket.");
+                        //ClsLog.instancia.EscribirLog("Existe el token. Sirve el ticket.");
                         ret = true; //sirve el ticket
                     }
                 }                

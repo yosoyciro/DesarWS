@@ -15,5 +15,6 @@ namespace BE.Tablas
         public virtual string DESCRIPCION { get; set; }       
         public virtual byte USAREN04D { get; set; }
         public virtual string DESCRIPCIONABREVIADA { get; set; }
+        public virtual byte ESSERVICIO { get; set; }
     }
 }

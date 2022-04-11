@@ -11,6 +11,7 @@ namespace DAL.Mapeos
             Property(p => p.DESCRIPCION);
             Property(p => p.USAREN04D);
             Property(p => p.DESCRIPCIONABREVIADA);
+            Property(p => p.ESSERVICIO);
         }
     }
 }

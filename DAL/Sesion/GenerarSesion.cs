@@ -8,6 +8,7 @@ using System;
 using DAL.Mapeos;
 using System.Configuration;
 using BE.Tablas;
+using System.Web;
 
 namespace DAL.Sesion
 {
@@ -102,22 +103,23 @@ namespace DAL.Sesion
                 {
                     var cfg = new NHibernate.Cfg.Configuration();
                     var appconfig = ConfigurationManager.AppSettings;
+                    string PathApp = HttpRuntime.AppDomainAppPath;
                     switch (appconfig["Ambiente"])
                     {
                         case "Test":
-                            cfg.Configure("Z:/Desarrollo/C#/Desarm/WebApi/bin/Conexion/test.cfg.xml");
+                            cfg.Configure(PathApp + "/bin/Conexion/test.cfg.xml");
                             break;
 
                         case "TestDatacenterRemoto":
-                            cfg.Configure("Z:/Desarrollo/C#/Desarm/WebApi/bin/Conexion/testdatacenter.cfg.xml");
+                            cfg.Configure(PathApp + "/bin/Conexion/testdatacenter.cfg.xml");
                             break;
 
                         case "Produccion":
-                            cfg.Configure("/inetpub/wwwroot/Desarm/bin/Conexion/produccion.cfg.xml");
+                            cfg.Configure(PathApp + "/bin/Conexion/produccion.cfg.xml");
                             break;
 
                         case "TestDatacenter":
-                            cfg.Configure("/inetpub/wwwroot/DesarmTest/bin/Conexion/testdatacenter.cfg.xml");
+                            cfg.Configure(PathApp + "/bin/Conexion/testdatacenter.cfg.xml");
                             break;
                     }
 
