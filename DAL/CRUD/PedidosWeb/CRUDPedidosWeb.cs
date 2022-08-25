@@ -20,18 +20,18 @@ namespace DAL.CRUD.PedidosWeb
         #endregion        
 
         #region Guardar
-        public BE.Pedidos.PedidosWeb Guardar(BE.Pedidos.PedidosWeb pPedidosWeb)
+        public async Task<BE.Pedidos.PedidosWeb> Guardar(BE.Pedidos.PedidosWeb pPedidosWeb)
         {
             ITransaction transaction = session.BeginTransaction();
             try
-            {               
+            {
                 //Persona
                 //var persona = session.Get<BE.Pedidos.Personas>(pPedidosWeb.Persona.PERSONASID);
                 var persona = session.Query<BE.Pedidos.Personas>().Where(a => a.TIPOSDOCUMENTOID == pPedidosWeb.Persona.TIPOSDOCUMENTOID && a.NRODOCUMENTO == pPedidosWeb.Persona.NRODOCUMENTO).SingleOrDefault();
                 if (persona == null)
                 {
                     persona = pPedidosWeb.Persona;
-                    session.Save(persona);                    
+                    await session.SaveAsync(persona);                    
                     pPedidosWeb.PERSONASID = persona.PERSONASID;
                     pPedidosWeb.Persona.PERSONASID = persona.PERSONASID;
                 }                   
@@ -39,21 +39,21 @@ namespace DAL.CRUD.PedidosWeb
                 {
                     persona = pPedidosWeb.Persona;
                     pPedidosWeb.PERSONASID = persona.PERSONASID;
-                    session.Merge(persona);
+                    await session.MergeAsync(persona);
                 }
                     
                 //Guardo el pedido
-                session.Save(pPedidosWeb);
+                await session.SaveAsync(pPedidosWeb);
 
                 //Detalle
                 int pedidosWebId = pPedidosWeb.PEDIDOSWEBID;                
                 foreach (var item in pPedidosWeb.PedidosWebDetalle)
                 {
-                    var pedidosWebDetalle = session.Get<BE.Pedidos.PedidosWebDetalle>(item.PEDIDOSWEBDETALLEID);
+                    var pedidosWebDetalle = await session.GetAsync<BE.Pedidos.PedidosWebDetalle>(item.PEDIDOSWEBDETALLEID);
                     if (pedidosWebDetalle == null)
                     {
                         item.PEDIDOSWEBID = pedidosWebId;
-                        session.Save(item);
+                        await session.SaveAsync(item);
                     }
                     
                 }
@@ -61,29 +61,23 @@ namespace DAL.CRUD.PedidosWeb
                 //Formas Pago
                 foreach (var item in pPedidosWeb.PedidosWebFormaPago)
                 {
-                    var pedidosWebFormasPago = session.Get<BE.Pedidos.PedidosWebFormasPago>(item.PEDIDOSWEBFORMASPAGOID);
+                    var pedidosWebFormasPago = await session.GetAsync<BE.Pedidos.PedidosWebFormasPago>(item.PEDIDOSWEBFORMASPAGOID);
                     if (pedidosWebFormasPago == null)
                     {
                         var tarjetaCupon = item.PedidosWebTarjetasCupones;
 
                         item.PEDIDOSWEBID = pedidosWebId;
-                        session.Save(item);
+                        await session.SaveAsync(item);
 
                         if (tarjetaCupon != null)
                         {
                             tarjetaCupon.PEDIDOSWEBFORMASPAGOID = item.PEDIDOSWEBFORMASPAGOID;
-                            session.Save(tarjetaCupon);
+                            await session.SaveAsync(tarjetaCupon);
                         }
                     }
 
                 }
 
-                //Archivo
-                //foreach (var item in pPedidosWeb.PedidosWebArchivos)
-                //{
-                //    item.PEDIDOSWEBID = pedidosWebId;
-                //    session.Save(item);
-                //}
                 switch (pPedidosWeb.PedidosWebArchivos.ARCHIVO)
                 {
                     case null:
@@ -91,12 +85,12 @@ namespace DAL.CRUD.PedidosWeb
 
                     default:
                         pPedidosWeb.PedidosWebArchivos.PEDIDOSWEBID = pedidosWebId;
-                        session.Save(pPedidosWeb.PedidosWebArchivos);
+                        await session.SaveAsync(pPedidosWeb.PedidosWebArchivos);
                         break;
                 }
 
                 session.Flush();
-                transaction.Commit();                
+                await transaction.CommitAsync();                
                 return pPedidosWeb;
             }
             catch (Exception e)

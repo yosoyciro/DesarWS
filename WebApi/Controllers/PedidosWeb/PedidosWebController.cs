@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using DAL.CRUD.PedidosWeb;
 using BLL;
+using System.Threading.Tasks;
 
 namespace WebApi.Controllers.PedidosWeb
 {
@@ -14,7 +15,7 @@ namespace WebApi.Controllers.PedidosWeb
     {
         [HttpPost]
         [Route("Guardar")]
-        public IHttpActionResult Guardar(BE.Pedidos.PedidosWeb pPedidosWeb)
+        public async Task<IHttpActionResult> Guardar(BE.Pedidos.PedidosWeb pPedidosWeb)
         {
             if (!ModelState.IsValid)
             {
@@ -24,7 +25,7 @@ namespace WebApi.Controllers.PedidosWeb
             try
             {
                 DAL.Otros.ClsLog.instancia.EscribirLog("Entrando a guardar");
-                BE.Pedidos.PedidosWeb pedidosWeb = CRUDPedidosWeb.instancia.Guardar(pPedidosWeb);
+                BE.Pedidos.PedidosWeb pedidosWeb = await CRUDPedidosWeb.instancia.Guardar(pPedidosWeb);
                 return Content(HttpStatusCode.OK, pedidosWeb);
             }
             catch (Exception ex)
